@@ -1,0 +1,7 @@
+## Creating Users, Groups, and OUs
+
+I created Organizational Units (OUs) so that I could store and organize different users, computers, and groups, under the same domain, in one place. To simulate a real company, I created OUs for each department one would find in a real corporate workspace: IT, HR, Finance, and Sales. I then made and placed users in each department with the naming convention for logging in as: "firstinitiallastname@adlab.test". Under the Groups OU, global security groups were made for each respective department so that different permissions could be assigned for users of those departments.
+
+I also created a separate admin account under the Admins OU so that administrators would be able to have their own regular company accounts and separate admin accounts for when they need more permissions.
+
+A mistake I made when creating the OUs was I had originally made the Admin OU under the Users OU on accident, but when I tried to move it, it returned an error saying I didn't have permissions which was because I enabled "prevent accidental deletion". The solution was to press View -> and enable Advanced Features, and I was then able to temporarily disable "Protect object from accidental deletion" and move it under the ADLAB OU.
