@@ -1,0 +1,7 @@
+## Group Policy Creation
+
+To create a group policy for the Workstation desktops, I opened the Group Policy Management tool in Server Manager, and navigated to the `Workstations` OU under my `adlab.test` domain. I then created a new GPO, named it `Workstation Security Baseline` and set `Interactive logon: Machine inactivity limit` to 900 seconds (15 minutes). I also enabled Windows Defender Firewall for the Domain Profile.
+
+I logged onto `WIN11-01` as one of the employees, and ran `gpupdate /force` to force update the group policies on the PC. I then ran `gpresult /r` to see if the policies were applied but it only showed me `USER SETTINGS` rather than `COMPUTER SETTINGS` which would show the inactivity timer being enabled. I had to run PowerShell as administrator and run `gpresult /r /scope computer` in order to see the `COMPUTER SETTINGS` section and was able to confirm the change had taken effect. Opening Windows Defender Firewall, I was able to confirm that the Firewall was enabled for the Domain networks as well.
+
+The next GPO I created was linked to the `Sales` OU so it would only apply to users in that department. I navigated to `User Configuration --> Policies --> Administrative Templates --> Control Panel`. Then I enabled `Prohibit access to Control Panel and PC settings` in order to prevent Sales users from accessing Control Panel and Settings in Windows. After signing in with once as a Sales user and once as a Finance user, I was able to confirm the Sales user wasn't able to open Control Panel and Settings but the Finance user was able.
