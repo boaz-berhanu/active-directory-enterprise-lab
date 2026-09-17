@@ -37,6 +37,9 @@ A virtualized Windows enterprise lab built with Windows Server 2025, Windows 11 
 | `SRV01` | `10.10.10.20` |
 | `WIN11-01` | `10.10.10.50` |
 
+Current Architecure (as of 09/17/2026)
+![Active Directory Architecture](screenshots/adlab-network-diagram-09-17-2026.png)
+
 ## Documentation
 
 - [Architecture](docs/architecture.md)
